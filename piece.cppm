@@ -28,11 +28,18 @@ namespace quarto
 		enum class Shape : uint8_t
 		{
 			Round,
-			Square
+			Square,
+			
 		};
 
 	public:
 		Piece(Body body, Color color, Height height, Shape shape);
+
+		Piece(const Piece& piece) = delete;
+		Piece& operator=(const Piece& piece) = delete;
+		
+		Piece(Piece&& price)noexcept =  default;
+		Piece& operator=(const Piece&& piece)noexcept =  default;
 
 		Body GetBody() const;
 		Color GetColor() const;
